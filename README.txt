@@ -7,4 +7,7 @@ Objectifs :
 - Ajouter des boss (+ de balles pour les tuer) pouvant également vous tirer dessus et zigzaguer,
 - Obtenir une couverture de code d'au moins 80%, Junit xD
 - Soyez créatif
+- Ajouter une fin de partie
+- Ajouter un timer
+
 - Bonus : Ajouter des niveaux, chaque niveau augmentant la vitesse des ennemis,
