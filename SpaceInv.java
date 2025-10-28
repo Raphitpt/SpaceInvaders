@@ -8,7 +8,7 @@ public class SpaceInv extends JPanel {
     private int vX=250,vY=450; // position vaisseau
     private ArrayList<Point> t=new ArrayList<Point>(); // tirs
     private ArrayList<Point> e=new ArrayList<Point>(); // ennemis
-    private int s=0; // score
+    private int score =0; // score
     private int tmr=0; // timer
     private Timer timer; // timer global
 
@@ -38,7 +38,7 @@ public class SpaceInv extends JPanel {
                 for(Point pT:t){
                     for(Point pE:e){
                         if(pT.x>=pE.x && pT.x<=pE.x+30 && pT.y>=pE.y && pT.y<=pE.y+20){
-                            remT.add(pT); remE.add(pE); s+=10;
+                            remT.add(pT); remE.add(pE); score +=10;
                         }
                     }
                 }
@@ -76,7 +76,7 @@ public class SpaceInv extends JPanel {
         for(Point p:e) g.fillRect(p.x,p.y,30,20); // ennemis
 
         g.setColor(Color.YELLOW);
-        g.drawString("Score: "+s,10,20);
+        g.drawString("Score: "+ score,10,20);
 
         for(Point p:e){
             if(p.y>=vY){
