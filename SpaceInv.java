@@ -90,7 +90,7 @@ public class SpaceInv extends JPanel {
     public static void main(String[] args){
         JFrame f=new JFrame("Space Invaders");
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.setSize(600,500);
+        f.setSize(100000,100000);
         f.add(new SpaceInv());
         f.setVisible(true);
     }
