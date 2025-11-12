@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class SpaceInv extends JPanel {
 
+    // Déjà refacto, voir dossier Game et Config
     private int vX=250,vY=450; // position vaisseau
     private ArrayList<Point> t=new ArrayList<Point>(); // tirs
     private ArrayList<Point> e=new ArrayList<Point>(); // ennemis
@@ -16,6 +17,7 @@ public class SpaceInv extends JPanel {
         setFocusable(true);
         for(int i=0;i<5;i++) for(int j=0;j<10;j++) e.add(new Point(50+j*40,50+i*30));
 
+        // Déjà refacto, voir dossier input
         addKeyListener(new KeyAdapter(){
             public void keyPressed(KeyEvent k){
                 switch(k.getKeyCode()){
@@ -27,6 +29,7 @@ public class SpaceInv extends JPanel {
             }
         });
 
+        // A faire
         timer = new Timer(50,new ActionListener(){
             public void actionPerformed(ActionEvent a){
                 tmr++;
@@ -61,6 +64,7 @@ public class SpaceInv extends JPanel {
         timer.start();
     }
 
+    // Déjà refacto, voir dossier UI
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         g.setColor(Color.BLACK);
@@ -88,6 +92,7 @@ public class SpaceInv extends JPanel {
     }
 
     public static void main(String[] args){
+        // Déjà refacto, voir dossier UI
         JFrame f=new JFrame("Space Invaders");
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setSize(100000,100000);
