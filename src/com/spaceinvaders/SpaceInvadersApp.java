@@ -1,4 +1,4 @@
-package src.main.java.com.spaceinvaders;
+package src.com.spaceinvaders;
 
 
 public class SpaceInvadersApp {

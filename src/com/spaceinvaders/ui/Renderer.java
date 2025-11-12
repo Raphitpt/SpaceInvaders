@@ -1,6 +1,6 @@
-package src.main.java.com.spaceinvaders.ui;
+package src.com.spaceinvaders.ui;
 
-import src.main.java.com.spaceinvaders.game.GameState;
+import src.com.spaceinvaders.game.GameState;
 
 import java.awt.*;
 

@@ -1,6 +1,6 @@
-package src.main.java.com.spaceinvaders.ui;
+package src.com.spaceinvaders.ui;
 
-import src.main.java.com.spaceinvaders.config.GameConfig;
+import src.com.spaceinvaders.config.GameConfig;
 
 import javax.swing.*;
 
@@ -10,7 +10,7 @@ public class GameFrame {
     public void setupFrame() {
         JFrame frame = new JFrame("Space Invaders");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(GameConfig.WINDOW_WIDTH, GameConfig.WINDOW_HEIGHT);
+        frame.setSize(GameConfig.getWindowWidth(), GameConfig.getWindowHeight());
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);

@@ -1,4 +1,4 @@
-package src.main.java.com.spaceinvaders.ui;
+package src.com.spaceinvaders.ui;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,4 +1,4 @@
-package src.main.java.com.spaceinvaders.game;
+package src.com.spaceinvaders.game;
 
 import java.awt.*;
 import java.util.ArrayList;
