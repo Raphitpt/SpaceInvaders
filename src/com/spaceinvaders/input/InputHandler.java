@@ -1,12 +1,11 @@
-package src.main.java.com.spaceinvaders.input;
+package src.com.spaceinvaders.input;
 
-import src.main.java.com.spaceinvaders.config.GameConfig;
-import src.main.java.com.spaceinvaders.game.GameState;
+import src.com.spaceinvaders.config.GameConfig;
+import src.com.spaceinvaders.game.GameState;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-
 
 public class InputHandler extends JPanel {
 
@@ -17,7 +16,6 @@ public class InputHandler extends JPanel {
             }
         });
     }
-
 
     private void handleKeyPress(KeyEvent event) {
         switch (event.getKeyCode()) {
@@ -36,19 +34,19 @@ public class InputHandler extends JPanel {
 
     private void movePlayerLeft() {
         if (GameState.SHIP_POSITION_X > 0) {
-            GameState.SHIP_POSITION_X -= GameConfig.SHIP_SPEED;
+            GameState.moveShip(-GameConfig.getShipSpeed());
         }
     }
 
     private void movePlayerRight() {
         if (GameState.SHIP_POSITION_X < 480) {
-            GameState.SHIP_POSITION_X += GameConfig.SHIP_SPEED;
+            GameState.moveShip(GameConfig.getShipSpeed());
         }
     }
 
     private void firePlayerBullet() {
         int bulletX = GameState.SHIP_POSITION_X + 15;
         int bulletY = GameState.SHIP_POSITION_Y - 10;
-        GameState.shotsCount.add(new Point(bulletX, bulletY));
+        GameState.projectiles.add(new Point(bulletX, bulletY));
     }
 }
