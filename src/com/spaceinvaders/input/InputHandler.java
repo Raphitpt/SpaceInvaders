@@ -34,19 +34,19 @@ public class InputHandler extends JPanel {
 
     private void movePlayerLeft() {
         if (GameState.SHIP_POSITION_X > 0) {
-            GameState.SHIP_POSITION_X -= GameConfig.getShipSpeed();
+            GameState.moveShip(-GameConfig.getShipSpeed());
         }
     }
 
     private void movePlayerRight() {
         if (GameState.SHIP_POSITION_X < 480) {
-            GameState.SHIP_POSITION_X += GameConfig.getShipSpeed();
+            GameState.moveShip(GameConfig.getShipSpeed());
         }
     }
 
     private void firePlayerBullet() {
         int bulletX = GameState.SHIP_POSITION_X + 15;
         int bulletY = GameState.SHIP_POSITION_Y - 10;
-        GameState.shotsCount.add(new Point(bulletX, bulletY));
+        GameState.projectiles.add(new Point(bulletX, bulletY));
     }
 }

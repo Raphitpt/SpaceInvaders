@@ -12,14 +12,14 @@ public class Renderer {
 
     public void drawBullet(Graphics graphics) {
         graphics.setColor(Color.RED);
-        for (Point point : GameState.shotsCount) {
+        for (Point point : GameState.projectiles) {
             graphics.fillRect(point.x, point.y, 5, 10);
         }
     }
 
     public void drawEnemies(Graphics graphics) {
         graphics.setColor(Color.WHITE);
-        for (Point point : GameState.enemiesCount) {
+        for (Point point : GameState.enemies) {
             graphics.fillRect(point.x, point.y, 30, 20);
         }
     }
