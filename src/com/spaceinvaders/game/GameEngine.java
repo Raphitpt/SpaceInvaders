@@ -12,11 +12,11 @@ public class GameEngine {
 
     public GameEngine(GameTimer gameTimer) {
         this.gameTimer = gameTimer;
+        GameState.initEnemies();
     }
 
     public void update() {
         GameState.elapsedTicks++;
-
         updateProjectiles();
         updateEnemies();
         checkCollisions();
@@ -39,7 +39,7 @@ public class GameEngine {
 
     private void updateEnemies() {
         if (GameState.elapsedTicks % 20 == 0) {
-            for (Point enemy : GameState.enemies) {
+            for (Enemy enemy : GameState.enemies) {
                 enemy.y += 10;
             }
         }
@@ -47,14 +47,25 @@ public class GameEngine {
 
     private void checkCollisions() {
         List<Point> projectilesToRemove = new ArrayList<>();
-        List<Point> enemiesToRemove = new ArrayList<>();
+        List<Enemy> enemiesToRemove = new ArrayList<>();
 
         for (Point projectile : GameState.projectiles) {
-            for (Point enemy : GameState.enemies) {
+            for (Enemy enemy : GameState.enemies) {
                 if (CollisionUtils.isProjectileCollidingWithEnemy(projectile, enemy)) {
                     projectilesToRemove.add(projectile);
-                    enemiesToRemove.add(enemy);
-                    GameState.score += 10;
+
+                    if (enemy.isBoss) {
+                        enemy.health--;
+                        if (enemy.health <= 0) {
+                            enemiesToRemove.add(enemy);
+                            GameState.score += 50;
+                        } else {
+                            GameState.score += 10;
+                        }
+                    } else {
+                        enemiesToRemove.add(enemy);
+                        GameState.score += 10;
+                    }
                 }
             }
         }
@@ -64,7 +75,7 @@ public class GameEngine {
     }
 
     private void checkGameOver() {
-        for (Point enemy : GameState.enemies) {
+        for (Enemy enemy : GameState.enemies) {
             if (enemy.y >= GameState.SHIP_POSITION_Y) {
                 gameTimer.stopGame();
                 break;
