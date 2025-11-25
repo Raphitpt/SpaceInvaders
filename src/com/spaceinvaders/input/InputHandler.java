@@ -46,7 +46,7 @@ public class InputHandler {
     }
 
     private void movePlayerRight() {
-        if (GameState.SHIP_POSITION_X < 480) {
+        if (GameState.SHIP_POSITION_X < 1000) {
             GameState.moveShip(GameConfig.getShipSpeed());
         }
     }

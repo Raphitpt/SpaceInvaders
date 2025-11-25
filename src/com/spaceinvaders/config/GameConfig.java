@@ -43,4 +43,12 @@ public class GameConfig {
     public static int getGameOverPositionY() {
         return Integer.parseInt(props.getProperty("gameOver.y"));
     }
+
+    public static int getShipStartX(int shipWidth) {
+        return (getWindowWidth() - shipWidth) / 2;
+    }
+
+    public static int getEnemiesGridStartX(int gridWidth) {
+        return (getWindowWidth() - gridWidth) / 2;
+    }
 }

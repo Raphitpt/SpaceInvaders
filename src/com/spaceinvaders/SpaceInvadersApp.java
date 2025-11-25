@@ -1,7 +1,5 @@
 package src.com.spaceinvaders;
 
-import src.com.spaceinvaders.game.GameState;
-import src.com.spaceinvaders.input.InputHandler;
 import src.com.spaceinvaders.ui.GameFrame;
 
 import javax.swing.*;
@@ -12,6 +10,5 @@ public class SpaceInvadersApp {
         // Création de la frame avec l'ajout du panneau du jeu
         GameFrame gameFrame = new GameFrame();
         gameFrame.setupFrame();
-
     }
 }

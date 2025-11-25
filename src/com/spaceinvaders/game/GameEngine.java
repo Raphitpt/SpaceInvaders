@@ -23,6 +23,7 @@ public class GameEngine {
         updateEnemies();
         checkCollisions();
         checkGameOver();
+        checkGameWin();
     }
 
     private void updateProjectiles() {
@@ -78,11 +79,18 @@ public class GameEngine {
 
     private void checkGameOver() {
         for (Enemy enemy : GameState.enemies) {
-            if (enemy.positionY >= GameState.SHIP_POSITION_Y) {
+            if (enemy.positionY + GameState.ENEMY_HEIGHT == GameState.SHIP_POSITION_Y) {
                 GameState.isGameOver = true;
                 gameTimer.stopGame();
                 break;
             }
+        }
+    }
+
+    private void checkGameWin() {
+        if(GameState.enemies.isEmpty()) {
+            GameState.isGameWin = true;
+            gameTimer.stopGame();
         }
     }
 }
