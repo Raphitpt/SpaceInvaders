@@ -4,8 +4,13 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GamePanel extends JPanel {
-    Renderer renderer;
+    private final Renderer renderer;
 
+    public GamePanel() {
+        this.renderer = new Renderer();
+    }
+
+    @Override
     public void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
         renderer.drawShip(graphics);

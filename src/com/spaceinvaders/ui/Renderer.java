@@ -1,5 +1,6 @@
 package src.com.spaceinvaders.ui;
 
+import src.com.spaceinvaders.game.Enemy;
 import src.com.spaceinvaders.game.GameState;
 
 import java.awt.*;
@@ -18,9 +19,14 @@ public class Renderer {
     }
 
     public void drawEnemies(Graphics graphics) {
-        graphics.setColor(Color.WHITE);
-        for (Point point : GameState.enemies) {
-            graphics.fillRect(point.x, point.y, 30, 20);
+        for (Enemy enemy : GameState.enemies) {
+            if (enemy.isBoss) {
+                graphics.setColor(GameState.BOSS_COLOR);
+                graphics.fillRect(enemy.x, enemy.y, GameState.BOSS_WIDTH, GameState.BOSS_HEIGHT);
+            } else {
+                graphics.setColor(GameState.ENEMY_COLOR);
+                graphics.fillRect(enemy.x, enemy.y, GameState.ENEMY_WIDTH, GameState.ENEMY_HEIGHT);
+            }
         }
     }
 
