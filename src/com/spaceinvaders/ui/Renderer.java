@@ -1,5 +1,6 @@
 package src.com.spaceinvaders.ui;
 
+import src.com.spaceinvaders.config.GameConfig;
 import src.com.spaceinvaders.game.Enemy;
 import src.com.spaceinvaders.game.GameState;
 
@@ -39,7 +40,7 @@ public class Renderer {
         if (GameState.isGameOver) {
             graphics.setColor(Color.RED);
             graphics.setFont(new Font("Arial", Font.BOLD, 40));
-            graphics.drawString("GAME OVER", 150, 250);
+            graphics.drawString("GAME OVER", GameConfig.getGameOverPositionX(), GameConfig.getGameOverPositionY());
         }
     }
 }

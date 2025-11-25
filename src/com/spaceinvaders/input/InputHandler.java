@@ -40,14 +40,12 @@ public class InputHandler {
     }
 
     private void movePlayerLeft() {
-        System.out.println("left");
         if (GameState.SHIP_POSITION_X > 0) {
             GameState.moveShip(-GameConfig.getShipSpeed());
         }
     }
 
     private void movePlayerRight() {
-        System.out.println("right");
         if (GameState.SHIP_POSITION_X < 480) {
             GameState.moveShip(GameConfig.getShipSpeed());
         }

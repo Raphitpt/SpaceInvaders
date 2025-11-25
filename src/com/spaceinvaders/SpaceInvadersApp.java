@@ -9,9 +9,7 @@ import javax.swing.*;
 public class SpaceInvadersApp {
 
     public static void main(String[] args) {
-        System.out.println("start");
         // Création de la frame avec l'ajout du panneau du jeu
-
         GameFrame gameFrame = new GameFrame();
         gameFrame.setupFrame();
 

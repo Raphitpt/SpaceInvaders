@@ -2,7 +2,6 @@ package src.com.spaceinvaders.ui;
 
 import src.com.spaceinvaders.config.GameConfig;
 import src.com.spaceinvaders.game.GameTimer;
-import src.com.spaceinvaders.input.InputHandler;
 
 import javax.swing.*;
 
@@ -23,7 +22,6 @@ public class GameFrame {
 
         // Démarrage de la boucle de jeu
         gameTimer = new GameTimer(gamePanel);
-
         frame.setVisible(true);
     }
 }
