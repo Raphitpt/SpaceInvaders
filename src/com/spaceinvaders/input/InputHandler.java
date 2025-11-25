@@ -7,10 +7,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class InputHandler extends JPanel {
+public class InputHandler {
+
+    private final JPanel targetPanel;
+
+    public InputHandler(JPanel targetPanel) {
+        this.targetPanel = targetPanel;
+    }
 
     public void setupKeyboardListener() {
-        addKeyListener(new KeyAdapter() {
+        targetPanel.setFocusable(true);
+        targetPanel.requestFocusInWindow();
+        targetPanel.addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent event) {
                 InputHandler.this.handleKeyPress(event);
             }
@@ -29,16 +37,17 @@ public class InputHandler extends JPanel {
                 firePlayerBullet();
                 break;
         }
-        repaint();
     }
 
     private void movePlayerLeft() {
+        System.out.println("left");
         if (GameState.SHIP_POSITION_X > 0) {
             GameState.moveShip(-GameConfig.getShipSpeed());
         }
     }
 
     private void movePlayerRight() {
+        System.out.println("right");
         if (GameState.SHIP_POSITION_X < 480) {
             GameState.moveShip(GameConfig.getShipSpeed());
         }

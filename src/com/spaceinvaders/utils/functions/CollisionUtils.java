@@ -15,7 +15,7 @@ public class CollisionUtils {
      * @return true if collision detected, false otherwise
      */
     public static boolean isProjectileCollidingWithEnemy(Point projectile, Enemy enemy) {
-        return projectile.x >= enemy.x && projectile.x <= enemy.x + GameState.ENEMY_WIDTH &&
-                projectile.y >= enemy.y && projectile.y <= enemy.y + GameState.ENEMY_HEIGHT;
+        return projectile.x >= enemy.positionX && projectile.x <= enemy.positionX + GameState.ENEMY_WIDTH &&
+                projectile.y >= enemy.positionY && projectile.y <= enemy.positionY + GameState.ENEMY_HEIGHT;
     }
 }
