@@ -1,19 +1,24 @@
 package src.com.spaceinvaders.game;
 
-import javax.swing.*;
-import java.awt.*;
+import src.com.spaceinvaders.input.InputHandler;
 
-public class GameTimer extends JPanel {
+import javax.swing.*;
+
+public class GameTimer {
 
     private final Timer gameLoopTimer;
     private final GameEngine gameEngine;
+    private final JPanel gamePanel;
 
-    public GameTimer() {
-        this.gameEngine = new GameEngine(this);
+    public GameTimer(JPanel gamePanel) {
+        this.gamePanel = gamePanel;
+
+        InputHandler inputHandler = new InputHandler(gamePanel);
+        this.gameEngine = new GameEngine(this, inputHandler);
 
         gameLoopTimer = new Timer(50, event -> {
             gameEngine.update();
-            repaint();
+            gamePanel.repaint();
         });
 
         gameLoopTimer.start();

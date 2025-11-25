@@ -1,5 +1,6 @@
 package src.com.spaceinvaders.game;
 
+import src.com.spaceinvaders.input.InputHandler;
 import src.com.spaceinvaders.utils.functions.CollisionUtils;
 
 import java.awt.*;
@@ -10,9 +11,10 @@ public class GameEngine {
 
     private final GameTimer gameTimer;
 
-    public GameEngine(GameTimer gameTimer) {
+    public GameEngine(GameTimer gameTimer, InputHandler inputHandler) {
         this.gameTimer = gameTimer;
         GameState.initEnemies();
+        inputHandler.setupKeyboardListener();
     }
 
     public void update() {
@@ -40,7 +42,7 @@ public class GameEngine {
     private void updateEnemies() {
         if (GameState.elapsedTicks % 20 == 0) {
             for (Enemy enemy : GameState.enemies) {
-                enemy.y += 10;
+                enemy.positionY += 10;
             }
         }
     }
@@ -76,7 +78,8 @@ public class GameEngine {
 
     private void checkGameOver() {
         for (Enemy enemy : GameState.enemies) {
-            if (enemy.y >= GameState.SHIP_POSITION_Y) {
+            if (enemy.positionY >= GameState.SHIP_POSITION_Y) {
+                GameState.isGameOver = true;
                 gameTimer.stopGame();
                 break;
             }

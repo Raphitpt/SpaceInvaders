@@ -35,4 +35,12 @@ public class GameConfig {
     public static int getShipSpeed() {
         return Integer.parseInt(props.getProperty("ship.speed"));
     }
+
+    public static int getGameOverPositionX() {
+        return Integer.parseInt(props.getProperty("gameOver.x"));
+    }
+
+    public static int getGameOverPositionY() {
+        return Integer.parseInt(props.getProperty("gameOver.y"));
+    }
 }

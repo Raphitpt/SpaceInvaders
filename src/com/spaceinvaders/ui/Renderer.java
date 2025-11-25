@@ -1,5 +1,6 @@
 package src.com.spaceinvaders.ui;
 
+import src.com.spaceinvaders.config.GameConfig;
 import src.com.spaceinvaders.game.Enemy;
 import src.com.spaceinvaders.game.GameState;
 
@@ -22,10 +23,10 @@ public class Renderer {
         for (Enemy enemy : GameState.enemies) {
             if (enemy.isBoss) {
                 graphics.setColor(GameState.BOSS_COLOR);
-                graphics.fillRect(enemy.x, enemy.y, GameState.BOSS_WIDTH, GameState.BOSS_HEIGHT);
+                graphics.fillRect(enemy.positionX, enemy.positionY, GameState.BOSS_WIDTH, GameState.BOSS_HEIGHT);
             } else {
                 graphics.setColor(GameState.ENEMY_COLOR);
-                graphics.fillRect(enemy.x, enemy.y, GameState.ENEMY_WIDTH, GameState.ENEMY_HEIGHT);
+                graphics.fillRect(enemy.positionX, enemy.positionY, GameState.ENEMY_WIDTH, GameState.ENEMY_HEIGHT);
             }
         }
     }
@@ -36,7 +37,10 @@ public class Renderer {
     }
 
     public void drawGameOver(Graphics graphics){
-        graphics.setColor(Color.RED);
-        graphics.drawString("GAME OVER", 200, 250);
+        if (GameState.isGameOver) {
+            graphics.setColor(Color.RED);
+            graphics.setFont(new Font("Arial", Font.BOLD, 40));
+            graphics.drawString("GAME OVER", GameConfig.getGameOverPositionX(), GameConfig.getGameOverPositionY());
+        }
     }
 }

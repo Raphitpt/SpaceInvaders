@@ -21,9 +21,7 @@ public class GameFrame {
         frame.add(gamePanel);
 
         // Démarrage de la boucle de jeu
-        gameTimer = new GameTimer();
-        gamePanel.add(gameTimer);
-
+        gameTimer = new GameTimer(gamePanel);
         frame.setVisible(true);
     }
 }

@@ -38,6 +38,7 @@ public class GameState {
 
     public static int score = 0;
     public static int elapsedTicks = 0;
+    public static boolean isGameOver = false;
 
     public static void moveShip(int deltaX) {
         SHIP_POSITION_X += deltaX;
