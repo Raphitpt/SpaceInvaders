@@ -2,13 +2,13 @@ package src.com.spaceinvaders.game;
 
 
 public class Enemy {
-    public int x, y;
+    public int positionX, positionY;
     public boolean isBoss;
     public int health;
 
-    public Enemy(int x, int y, boolean isBoss) {
-        this.x = x;
-        this.y = y;
+    public Enemy(int positionX, int positionY, boolean isBoss) {
+        this.positionX = positionX;
+        this.positionY = positionY;
         this.isBoss = isBoss;
         this.health = isBoss ? 2 : 1;
     }
