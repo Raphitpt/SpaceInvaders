@@ -40,7 +40,7 @@ public class Renderer {
     public void drawTime(Graphics graphics){
         graphics.setColor(Color.BLACK);
         graphics.setFont(new Font("Arial", Font.BOLD, 20));
-        graphics.drawString("Score: "+GameState, 20, 40);
+        graphics.drawString("Score: "+ GameState.score, 20, 40);
     }
 
     public void drawGameOver(Graphics graphics){
