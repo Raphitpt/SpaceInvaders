@@ -22,12 +22,38 @@ public class Renderer {
     public void drawEnemies(Graphics graphics) {
         for (Enemy enemy : GameState.enemies) {
             if (enemy.isBoss) {
-                graphics.setColor(GameState.BOSS_COLOR);
-                graphics.fillRect(enemy.positionX, enemy.positionY, GameState.BOSS_WIDTH, GameState.BOSS_HEIGHT);
+                graphics.setColor(GameState.ENEMY_SHIELD_COLOR);
+                graphics.fillRect(enemy.positionX, enemy.positionY, GameState.ENEMY_SHIELD_WIDTH, GameState.ENEMY_SHIELD_HEIGHT);
             } else {
                 graphics.setColor(GameState.ENEMY_COLOR);
                 graphics.fillRect(enemy.positionX, enemy.positionY, GameState.ENEMY_WIDTH, GameState.ENEMY_HEIGHT);
             }
+        }
+    }
+
+    public void drawBoss(Graphics graphics) {
+        if (GameState.boss != null && GameState.boss.isAlive()) {
+            graphics.setColor(Color.ORANGE);
+            graphics.fillRect(GameState.boss.positionX, GameState.boss.positionY,
+                            GameState.BOSS_WIDTH, GameState.BOSS_HEIGHT);
+
+            graphics.setColor(Color.YELLOW);
+            int barWidth = GameState.BOSS_WIDTH;
+            int barHeight = 5;
+            int barX = GameState.boss.positionX;
+            int barY = GameState.boss.positionY - 10;
+
+            graphics.drawRect(barX, barY, barWidth, barHeight);
+
+            int healthWidth = (int) ((double) GameState.boss.health / GameState.boss.maxHealth * barWidth);
+            graphics.fillRect(barX, barY, healthWidth, barHeight);
+        }
+    }
+
+    public void drawBossProjectiles(Graphics graphics) {
+        graphics.setColor(Color.ORANGE);
+        for (Point point : GameState.bossProjectiles) {
+            graphics.fillOval(point.x - 3, point.y - 3, 6, 6);
         }
     }
 
