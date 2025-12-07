@@ -4,7 +4,7 @@ public class Boss {
     public int positionX, positionY;
     public int health;
     public int maxHealth;
-    public int direction; // -1 pour gauche, 1 pour droite
+    public int direction;
     public int zigzagAmplitude;
     public int ticksSinceLastShot;
     public int shootingCooldown;
@@ -17,19 +17,16 @@ public class Boss {
         this.direction = 1;
         this.zigzagAmplitude = 5;
         this.ticksSinceLastShot = 0;
-        this.shootingCooldown = 30; // Tire toutes les 30 ticks
+        this.shootingCooldown = 30;
     }
 
     public void updatePosition() {
-        // Mouvement en zigzag
         positionX += direction * zigzagAmplitude;
 
-        // Changement de direction aux bords
         if (positionX <= 50 || positionX >= 550) {
             direction *= -1;
         }
 
-        // Descente progressive
         if (Math.random() < 0.1) {
             positionY += 5;
         }
