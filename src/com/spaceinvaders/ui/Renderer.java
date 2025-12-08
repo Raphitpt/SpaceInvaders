@@ -78,7 +78,7 @@ public class Renderer {
 
     public void drawWin(Graphics graphics){
         if (GameState.isGameWin) {
-            drawCenteredText(graphics, "YOU WIN", Color.GREEN);
+            drawCenteredText(graphics, "YOU WIN IN ONLY "+GameTimer.getElapsedSeconds() + " SECONDS !", Color.GREEN);
         }
     }
 

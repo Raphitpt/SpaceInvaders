@@ -19,6 +19,7 @@ public class GamePanel extends JPanel {
         renderer.drawBoss(graphics);
         renderer.drawBossProjectiles(graphics);
         renderer.drawScore(graphics);
+        renderer.drawTime(graphics);
         renderer.drawGameOver(graphics);
         renderer.drawWin(graphics);
     }
