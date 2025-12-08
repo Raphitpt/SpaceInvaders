@@ -1,4 +1,4 @@
-package src.com.spaceinvaders.config;
+package spaceinvaders.config;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,7 +11,7 @@ public class GameConfig {
     static {
         try (InputStream input = GameConfig.class
                 .getClassLoader()
-                .getResourceAsStream("resources/game.properties")) {
+                .getResourceAsStream("game.properties")) {
 
             if (input == null) {
                 throw new RuntimeException("Fichier game.properties introuvable dans le classpath");
@@ -34,14 +34,6 @@ public class GameConfig {
 
     public static int getShipSpeed() {
         return Integer.parseInt(props.getProperty("ship.speed"));
-    }
-
-    public static int getGameOverPositionX() {
-        return Integer.parseInt(props.getProperty("gameOver.x"));
-    }
-
-    public static int getGameOverPositionY() {
-        return Integer.parseInt(props.getProperty("gameOver.y"));
     }
 
     public static int getShipStartX(int shipWidth) {

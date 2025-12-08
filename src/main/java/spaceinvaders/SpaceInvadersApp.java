@@ -1,8 +1,6 @@
-package src.com.spaceinvaders;
+package spaceinvaders;
 
-import src.com.spaceinvaders.ui.GameFrame;
-
-import javax.swing.*;
+import spaceinvaders.ui.GameFrame;
 
 public class SpaceInvadersApp {
 

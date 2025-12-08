@@ -1,9 +1,9 @@
-package src.com.spaceinvaders.ui;
+package spaceinvaders.ui;
 
-import src.com.spaceinvaders.config.GameConfig;
-import src.com.spaceinvaders.game.Enemy;
-import src.com.spaceinvaders.game.GameState;
-import src.com.spaceinvaders.game.GameTimer;
+import spaceinvaders.config.GameConfig;
+import spaceinvaders.game.Enemy;
+import spaceinvaders.game.GameState;
+import spaceinvaders.game.GameTimer;
 
 import java.awt.*;
 

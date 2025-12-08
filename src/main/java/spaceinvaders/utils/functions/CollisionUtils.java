@@ -1,8 +1,8 @@
-package src.com.spaceinvaders.utils.functions;
+package spaceinvaders.utils.functions;
 
-import src.com.spaceinvaders.game.Boss;
-import src.com.spaceinvaders.game.Enemy;
-import src.com.spaceinvaders.game.GameState;
+import spaceinvaders.game.Boss;
+import spaceinvaders.game.Enemy;
+import spaceinvaders.game.GameState;
 
 import java.awt.Point;
 

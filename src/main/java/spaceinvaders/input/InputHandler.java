@@ -1,7 +1,8 @@
-package src.com.spaceinvaders.input;
+package spaceinvaders.input;
 
-import src.com.spaceinvaders.config.GameConfig;
-import src.com.spaceinvaders.game.GameState;
+import spaceinvaders.config.GameConfig;
+import spaceinvaders.game.GameState;
+
 
 import javax.swing.*;
 import java.awt.*;

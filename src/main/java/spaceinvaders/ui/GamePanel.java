@@ -1,10 +1,10 @@
-package src.com.spaceinvaders.ui;
+package spaceinvaders.ui;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class GamePanel extends JPanel {
-    private final Renderer renderer;
+    private final Renderer renderer;  // Remove javax.swing.Renderer reference
 
     public GamePanel() {
         this.renderer = new Renderer();

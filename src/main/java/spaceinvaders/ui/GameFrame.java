@@ -1,7 +1,7 @@
-package src.com.spaceinvaders.ui;
+package spaceinvaders.ui;
 
-import src.com.spaceinvaders.config.GameConfig;
-import src.com.spaceinvaders.game.GameTimer;
+import spaceinvaders.config.GameConfig;
+import spaceinvaders.game.GameTimer;
 
 import javax.swing.*;
 

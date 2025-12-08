@@ -1,4 +1,4 @@
-package src.com.spaceinvaders.game;
+package spaceinvaders.game;
 
 
 public class Enemy {

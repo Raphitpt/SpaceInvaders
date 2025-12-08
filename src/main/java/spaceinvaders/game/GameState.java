@@ -1,6 +1,6 @@
-package src.com.spaceinvaders.game;
+package spaceinvaders.game;
 
-import src.com.spaceinvaders.config.GameConfig;
+import spaceinvaders.config.GameConfig;
 
 import java.awt.*;
 import java.util.ArrayList;

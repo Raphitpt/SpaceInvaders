@@ -1,6 +1,6 @@
-package src.com.spaceinvaders.game;
+package spaceinvaders.game;
 
-import src.com.spaceinvaders.input.InputHandler;
+import spaceinvaders.input.InputHandler;
 
 import javax.swing.*;
 

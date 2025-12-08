@@ -1,7 +1,7 @@
-package src.com.spaceinvaders.game;
+package spaceinvaders.game;
 
-import src.com.spaceinvaders.input.InputHandler;
-import src.com.spaceinvaders.utils.functions.CollisionUtils;
+import spaceinvaders.input.InputHandler;
+import spaceinvaders.utils.functions.CollisionUtils;
 
 import java.awt.*;
 import java.util.ArrayList;
