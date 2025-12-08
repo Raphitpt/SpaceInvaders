@@ -3,6 +3,7 @@ package src.com.spaceinvaders.ui;
 import src.com.spaceinvaders.config.GameConfig;
 import src.com.spaceinvaders.game.Enemy;
 import src.com.spaceinvaders.game.GameState;
+import src.com.spaceinvaders.game.GameTimer;
 
 import java.awt.*;
 
@@ -66,7 +67,7 @@ public class Renderer {
     public void drawTime(Graphics graphics){
         graphics.setColor(Color.BLACK);
         graphics.setFont(new Font("Arial", Font.BOLD, 20));
-        graphics.drawString("Score: "+ GameState.score, 20, 40);
+        graphics.drawString("Timer: "+ GameTimer.getElapsedSeconds(), 20, 60);
     }
 
     public void drawGameOver(Graphics graphics){
