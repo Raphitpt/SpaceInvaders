@@ -17,9 +17,12 @@ public class GameState {
     public static int ENEMY_WIDTH = 30;
     public static int ENEMY_HEIGHT = 20;
 
-    public static Color BOSS_COLOR = Color.RED;
-    public static int BOSS_WIDTH = 30;
-    public static int BOSS_HEIGHT = 20;
+    public static Color ENEMY_SHIELD_COLOR = Color.RED;
+    public static int ENEMY_SHIELD_WIDTH = 30;
+    public static int ENEMY_SHIELD_HEIGHT = 20;
+
+    public static int BOSS_WIDTH = 60;
+    public static int BOSS_HEIGHT = 40;
 
     public static void initEnemies() {
         Random random = new Random();
@@ -28,13 +31,13 @@ public class GameState {
         int spacing = 10;
 
         // Calcul de la largeur totale de la grille
-        int gridWidth = cols * BOSS_WIDTH + (cols - 1) * spacing;
+        int gridWidth = cols * ENEMY_SHIELD_WIDTH + (cols - 1) * spacing;
         int startX = GameConfig.getEnemiesGridStartX(gridWidth);
 
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
-                int x = startX + col * (BOSS_WIDTH + spacing);
-                int y = 50 + row * (BOSS_HEIGHT + spacing);
+                int x = startX + col * (ENEMY_SHIELD_WIDTH + spacing);
+                int y = 50 + row * (ENEMY_SHIELD_HEIGHT + spacing);
 
                 boolean isBoss = random.nextDouble() < 0.2; // 20% de chance d'être boss
                 enemies.add(new Enemy(x, y, isBoss));
@@ -43,7 +46,10 @@ public class GameState {
     }
 
     public static final ArrayList<Point> projectiles = new ArrayList<>();
+    public static final ArrayList<Point> bossProjectiles = new ArrayList<>();
     public static List<Enemy> enemies = new ArrayList<>();
+    public static Boss boss = null;
+    public static boolean isBossSpawned = false;
 
     public static int score = 0;
     public static int elapsedTicks = 0;

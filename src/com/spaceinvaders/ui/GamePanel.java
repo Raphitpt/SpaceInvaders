@@ -16,6 +16,8 @@ public class GamePanel extends JPanel {
         renderer.drawShip(graphics);
         renderer.drawBullet(graphics);
         renderer.drawEnemies(graphics);
+        renderer.drawBoss(graphics);
+        renderer.drawBossProjectiles(graphics);
         renderer.drawScore(graphics);
         renderer.drawGameOver(graphics);
         renderer.drawWin(graphics);
