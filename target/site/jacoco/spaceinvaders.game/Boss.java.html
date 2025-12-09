@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Boss.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Space Invaders</a> &gt; <a href="index.source.html" class="el_package">spaceinvaders.game</a> &gt; <span class="el_source">Boss.java</span></div><h1>Boss.java</h1><pre class="source lang-java linenums">package spaceinvaders.game;
+
+public class Boss {
+    public int positionX, positionY;
+    public int health;
+    public int maxHealth;
+    public int direction;
+    public int zigzagAmplitude;
+    public int ticksSinceLastShot;
+    public int shootingCooldown;
+
+<span class="nc" id="L12">    public Boss(int positionX, int positionY, int health) {</span>
+<span class="nc" id="L13">        this.positionX = positionX;</span>
+<span class="nc" id="L14">        this.positionY = positionY;</span>
+<span class="nc" id="L15">        this.health = health;</span>
+<span class="nc" id="L16">        this.maxHealth = health;</span>
+<span class="nc" id="L17">        this.direction = 1;</span>
+<span class="nc" id="L18">        this.zigzagAmplitude = 5;</span>
+<span class="nc" id="L19">        this.ticksSinceLastShot = 0;</span>
+<span class="nc" id="L20">        this.shootingCooldown = 30;</span>
+<span class="nc" id="L21">    }</span>
+
+    public void updatePosition() {
+<span class="nc" id="L24">        positionX += direction * zigzagAmplitude;</span>
+
+<span class="nc bnc" id="L26" title="All 4 branches missed.">        if (positionX &lt;= 50 || positionX &gt;= 550) {</span>
+<span class="nc" id="L27">            direction *= -1;</span>
+        }
+
+<span class="nc bnc" id="L30" title="All 2 branches missed.">        if (Math.random() &lt; 0.1) {</span>
+<span class="nc" id="L31">            positionY += 5;</span>
+        }
+<span class="nc" id="L33">    }</span>
+
+    public boolean canShoot() {
+<span class="nc" id="L36">        ticksSinceLastShot++;</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">        if (ticksSinceLastShot &gt;= shootingCooldown) {</span>
+<span class="nc" id="L38">            ticksSinceLastShot = 0;</span>
+<span class="nc" id="L39">            return true;</span>
+        }
+<span class="nc" id="L41">        return false;</span>
+    }
+
+    public void takeDamage() {
+<span class="nc" id="L45">        health--;</span>
+<span class="nc" id="L46">    }</span>
+
+    public boolean isAlive() {
+<span class="nc bnc" id="L49" title="All 2 branches missed.">        return health &gt; 0;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

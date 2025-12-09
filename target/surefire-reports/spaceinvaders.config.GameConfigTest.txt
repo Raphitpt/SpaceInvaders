@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: spaceinvaders.config.GameConfigTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s -- in spaceinvaders.config.GameConfigTest
