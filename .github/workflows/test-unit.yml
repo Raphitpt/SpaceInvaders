@@ -1,0 +1,32 @@
+name: build
+on:
+  pull_request:
+
+permissions:
+  checks: write
+  pull-requests: write
+
+jobs:
+  build:
+    name: Build and Run Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Run Maven tests
+        run: mvn -B test
+
+      - name: Publish Test Report
+        uses: mikepenz/action-junit-report@v5
+        if: success() || failure()
+        with:
+          report_paths: '**/target/surefire-reports/*.xml'
+          include_passed: true
