@@ -1,6 +1,10 @@
 name: build
 on:
-  pull_request:
+  push:
+
+permissions:
+  checks: write
+  pull-requests: write
 
 jobs:
   build:
