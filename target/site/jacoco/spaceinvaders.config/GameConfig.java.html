@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GameConfig.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Space Invaders</a> &gt; <a href="index.source.html" class="el_package">spaceinvaders.config</a> &gt; <span class="el_source">GameConfig.java</span></div><h1>GameConfig.java</h1><pre class="source lang-java linenums">package spaceinvaders.config;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
+<span class="nc" id="L7">public class GameConfig {</span>
+
+<span class="fc" id="L9">    private static final Properties props = new Properties();</span>
+
+    static {
+<span class="fc" id="L12">        try (InputStream input = GameConfig.class</span>
+<span class="fc" id="L13">                .getClassLoader()</span>
+<span class="fc" id="L14">                .getResourceAsStream(&quot;game.properties&quot;)) {</span>
+
+<span class="pc bpc" id="L16" title="1 of 2 branches missed.">            if (input == null) {</span>
+<span class="nc" id="L17">                throw new RuntimeException(&quot;Fichier game.properties introuvable dans le classpath&quot;);</span>
+            }
+
+<span class="fc" id="L20">            props.load(input);</span>
+
+<span class="nc" id="L22">        } catch (IOException e) {</span>
+<span class="nc" id="L23">            throw new RuntimeException(&quot;Impossible de charger la configuration&quot;, e);</span>
+<span class="fc" id="L24">        }</span>
+<span class="fc" id="L25">    }</span>
+
+    public static int getWindowWidth() {
+<span class="fc" id="L28">        return Integer.parseInt(props.getProperty(&quot;window.width&quot;));</span>
+    }
+
+    public static int getWindowHeight() {
+<span class="fc" id="L32">        return Integer.parseInt(props.getProperty(&quot;window.height&quot;));</span>
+    }
+
+    public static int getShipSpeed() {
+<span class="fc" id="L36">        return Integer.parseInt(props.getProperty(&quot;ship.speed&quot;));</span>
+    }
+
+    public static int getShipStartX(int shipWidth) {
+<span class="fc" id="L40">        return (getWindowWidth() - shipWidth) / 2;</span>
+    }
+
+    public static int getEnemiesGridStartX(int gridWidth) {
+<span class="fc" id="L44">        return (getWindowWidth() - gridWidth) / 2;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

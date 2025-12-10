@@ -1,0 +1,60 @@
+package spaceinvaders.input;
+
+import spaceinvaders.config.GameConfig;
+import spaceinvaders.game.GameState;
+
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class InputHandler {
+
+    private final JPanel targetPanel;
+
+    public InputHandler(JPanel targetPanel) {
+        this.targetPanel = targetPanel;
+    }
+
+    public void setupKeyboardListener() {
+        targetPanel.setFocusable(true);
+        targetPanel.requestFocusInWindow();
+        targetPanel.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent event) {
+                InputHandler.this.handleKeyPress(event);
+            }
+        });
+    }
+
+    private void handleKeyPress(KeyEvent event) {
+        switch (event.getKeyCode()) {
+            case KeyEvent.VK_LEFT:
+                movePlayerLeft();
+                break;
+            case KeyEvent.VK_RIGHT:
+                movePlayerRight();
+                break;
+            case KeyEvent.VK_SPACE:
+                firePlayerBullet();
+                break;
+        }
+    }
+
+    private void movePlayerLeft() {
+        if (GameState.SHIP_POSITION_X > 0) {
+            GameState.moveShip(-GameConfig.getShipSpeed());
+        }
+    }
+
+    private void movePlayerRight() {
+        if (GameState.SHIP_POSITION_X < 1000) {
+            GameState.moveShip(GameConfig.getShipSpeed());
+        }
+    }
+
+    private void firePlayerBullet() {
+        int bulletX = GameState.SHIP_POSITION_X + 15;
+        int bulletY = GameState.SHIP_POSITION_Y - 10;
+        GameState.projectiles.add(new Point(bulletX, bulletY));
+    }
+}
