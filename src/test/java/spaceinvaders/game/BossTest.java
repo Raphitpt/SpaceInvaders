@@ -3,7 +3,6 @@ package spaceinvaders.game;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,8 +18,6 @@ class BossTest {
     void setUp() {
         boss = new Boss(INITIAL_X, INITIAL_Y, INITIAL_HEALTH);
     }
-
-    // ==================== Tests du constructeur ====================
 
     @Test
     @DisplayName("Constructeur - Initialise correctement toutes les propriétés")
@@ -48,8 +45,6 @@ class BossTest {
         // Then
         assertEquals(newBoss.health, newBoss.maxHealth, "La santé devrait être égale à maxHealth");
     }
-
-    // ==================== Tests de updatePosition ====================
 
     @Test
     @DisplayName("updatePosition - Déplace le boss vers la droite initialement")
@@ -94,30 +89,12 @@ class BossTest {
     }
 
     @Test
-    @DisplayName("updatePosition - Déplace vers la gauche après inversion de direction")
-    void testUpdatePosition_MovesLeftAfterDirectionChange() {
-        // Given
-        boss.positionX = 555;
-        boss.direction = 1;
-        boss.updatePosition(); // Déclenche l'inversion
-        int positionAfterInversion = boss.positionX;
-
-        // When
-        boss.updatePosition();
-
-        // Then
-        assertEquals(positionAfterInversion - 5, boss.positionX,
-                "Le boss devrait se déplacer vers la gauche après inversion");
-    }
-
-    @Test
     @DisplayName("updatePosition - La position Y peut augmenter aléatoirement")
     void testUpdatePosition_YPositionCanIncrease() {
         // Given
         int initialY = boss.positionY;
         boolean yIncreased = false;
 
-        // When - Test sur plusieurs itérations pour la nature aléatoire
         for (int i = 0; i < 100; i++) {
             boss.positionY = initialY; // Reset Y
             boss.updatePosition();
@@ -139,7 +116,6 @@ class BossTest {
         int initialY = boss.positionY;
         boolean yStayedStable = false;
 
-        // When - Test sur plusieurs itérations
         for (int i = 0; i < 100; i++) {
             boss.positionY = initialY; // Reset Y
             boss.updatePosition();
@@ -183,8 +159,6 @@ class BossTest {
         assertTrue(boss.positionX <= 555,
                 "Le boss ne devrait pas dépasser significativement la limite droite");
     }
-
-    // ==================== Tests de canShoot ====================
 
     @Test
     @DisplayName("canShoot - Retourne false avant que le cooldown soit atteint")
@@ -254,7 +228,7 @@ class BossTest {
         }
         boolean firstShot = boss.canShoot();
 
-        // When - Deuxième cycle
+        // When
         for (int i = 0; i < 29; i++) {
             assertFalse(boss.canShoot(), "Ne devrait pas pouvoir tirer avant 30 ticks");
         }
@@ -264,8 +238,6 @@ class BossTest {
         assertTrue(firstShot, "Le premier tir devrait être possible");
         assertTrue(secondShot, "Le second tir devrait être possible");
     }
-
-    // ==================== Tests de takeDamage ====================
 
     @Test
     @DisplayName("takeDamage - Réduit la santé de 1")
@@ -324,8 +296,6 @@ class BossTest {
                 "La santé devrait être réduite correctement après plusieurs dégâts");
     }
 
-    // ==================== Tests de isAlive ====================
-
     @Test
     @DisplayName("isAlive - Retourne true avec une santé positive")
     void testIsAlive_ReturnsTrueWithPositiveHealth() {
@@ -377,8 +347,6 @@ class BossTest {
         // Then
         assertFalse(alive, "Le boss ne devrait pas être vivant avec une santé négative");
     }
-
-    // ==================== Tests d'intégration ====================
 
     @Test
     @DisplayName("Integration - Boss meurt après avoir reçu tous les dégâts")

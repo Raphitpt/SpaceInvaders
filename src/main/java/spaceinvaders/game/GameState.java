@@ -59,4 +59,28 @@ public class GameState {
     public static void moveShip(int deltaX) {
         SHIP_POSITION_X += deltaX;
     }
+
+    public static void reset() {
+        // Réinitialiser les listes
+        projectiles.clear();
+        bossProjectiles.clear();
+        enemies.clear();
+
+        // Réinitialiser le boss
+        boss = null;
+        isBossSpawned = false;
+
+        // Réinitialiser les compteurs
+        score = 0;
+        elapsedTicks = 0;
+
+        // Réinitialiser les états de jeu
+        isGameOver = false;
+        isGameWin = false;
+
+        // Réinitialiser la position du vaisseau
+        SHIP_POSITION_X = GameConfig.getShipStartX(SHIP_WIDTH);
+        SHIP_POSITION_Y = 450;
+    }
+
 }
