@@ -1,0 +1,86 @@
+package spaceinvaders.game;
+
+import spaceinvaders.config.GameConfig;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+public class GameState {
+    public static final int SHIP_WIDTH = 30;
+    public static final int SHIP_HEIGHT = 15;
+    public static int SHIP_POSITION_X = GameConfig.getShipStartX(SHIP_WIDTH);
+    public static int SHIP_POSITION_Y = 450;
+
+    public static Color ENEMY_COLOR = Color.WHITE;
+    public static int ENEMY_WIDTH = 30;
+    public static int ENEMY_HEIGHT = 20;
+
+    public static Color ENEMY_SHIELD_COLOR = Color.RED;
+    public static int ENEMY_SHIELD_WIDTH = 30;
+    public static int ENEMY_SHIELD_HEIGHT = 20;
+
+    public static int BOSS_WIDTH = 60;
+    public static int BOSS_HEIGHT = 40;
+
+    public static void initEnemies() {
+        Random random = new Random();
+        int rows = 5;
+        int cols = 10;
+        int spacing = 10;
+
+        // Calcul de la largeur totale de la grille
+        int gridWidth = cols * ENEMY_SHIELD_WIDTH + (cols - 1) * spacing;
+        int startX = GameConfig.getEnemiesGridStartX(gridWidth);
+
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                int x = startX + col * (ENEMY_SHIELD_WIDTH + spacing);
+                int y = 50 + row * (ENEMY_SHIELD_HEIGHT + spacing);
+
+                boolean isBoss = random.nextDouble() < 0.2; // 20% de chance d'être boss
+                enemies.add(new Enemy(x, y, isBoss));
+            }
+        }
+    }
+
+    public static final ArrayList<Point> projectiles = new ArrayList<>();
+    public static final ArrayList<Point> bossProjectiles = new ArrayList<>();
+    public static List<Enemy> enemies = new ArrayList<>();
+    public static Boss boss = null;
+    public static boolean isBossSpawned = false;
+
+    public static int score = 0;
+    public static int elapsedTicks = 0;
+    public static boolean isGameOver = false;
+    public static boolean isGameWin = false;
+
+    public static void moveShip(int deltaX) {
+        SHIP_POSITION_X += deltaX;
+    }
+
+    public static void reset() {
+        // Réinitialiser les listes
+        projectiles.clear();
+        bossProjectiles.clear();
+        enemies.clear();
+
+        // Réinitialiser le boss
+        boss = null;
+        isBossSpawned = false;
+
+        // Réinitialiser les compteurs
+        score = 0;
+        elapsedTicks = 0;
+
+        // Réinitialiser les états de jeu
+        isGameOver = false;
+        isGameWin = false;
+
+        // Réinitialiser la position du vaisseau
+        SHIP_POSITION_X = GameConfig.getShipStartX(SHIP_WIDTH);
+        SHIP_POSITION_Y = 450;
+    }
+
+}
