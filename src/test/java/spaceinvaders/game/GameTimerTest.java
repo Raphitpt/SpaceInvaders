@@ -56,7 +56,7 @@ class GameTimerTest {
     }
 
     @Test
-    void testGameLoop_shouldIncrementElapsedSecondsAfter1000Ms() throws Exception {
+    void testGameLoop_shouldIncrementElapsedSecondsAfter1000Ms() {
         // Given
         GameTimer gameTimer = new GameTimer(gamePanel);
         Timer timer = getGameLoopTimer(gameTimer);
@@ -75,7 +75,7 @@ class GameTimerTest {
     }
 
     @Test
-    void testGameLoop_shouldIncrementMultipleSeconds() throws Exception {
+    void testGameLoop_shouldIncrementMultipleSeconds() {
         // Given
         GameTimer gameTimer = new GameTimer(gamePanel);
         Timer timer = getGameLoopTimer(gameTimer);
@@ -92,7 +92,7 @@ class GameTimerTest {
     }
 
     @Test
-    void testGameLoop_shouldNotIncrementSecondsBeforeThreshold() throws Exception {
+    void testGameLoop_shouldNotIncrementSecondsBeforeThreshold() {
         // Given
         GameTimer gameTimer = new GameTimer(gamePanel);
         Timer timer = getGameLoopTimer(gameTimer);
@@ -109,7 +109,7 @@ class GameTimerTest {
     }
 
     @Test
-    void testGameLoop_shouldResetAccumulatorAfterSecondIncrement() throws Exception {
+    void testGameLoop_shouldResetAccumulatorAfterSecondIncrement()  {
         // Given
         GameTimer gameTimer = new GameTimer(gamePanel);
         Timer timer = getGameLoopTimer(gameTimer);
@@ -137,7 +137,7 @@ class GameTimerTest {
     }
 
     @Test
-    void testGetElapsedSeconds_shouldReturnCurrentValue() throws Exception {
+    void testGetElapsedSeconds_shouldReturnCurrentValue()  {
         // Given
         GameTimer gameTimer = new GameTimer(gamePanel);
         Timer timer = getGameLoopTimer(gameTimer);
@@ -155,7 +155,7 @@ class GameTimerTest {
     }
 
     @Test
-    void testStopGame_shouldPreventFurtherUpdates() throws Exception {
+    void testStopGame_shouldPreventFurtherUpdates()  {
         // Given
         GameTimer gameTimer = new GameTimer(gamePanel);
         Timer timer = getGameLoopTimer(gameTimer);
